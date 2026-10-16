@@ -1,0 +1,4 @@
+[build.environment]
+  # Firebase browser configuration is public and required by the client SDK.
+  # Keep this file limited to public configuration; never add server credentials.
+  SECRETS_SCAN_OMIT_PATHS = "firebase-config.js"
