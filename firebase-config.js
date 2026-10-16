@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBjNCThjxo4At32mgVsMyIGATOQVmSJ3fc",
+    apiKey: window.FIREBASE_API_KEY,
     authDomain: "germainpharma-d6b2c.firebaseapp.com",
     projectId: "germainpharma-d6b2c",
     storageBucket: "germainpharma-d6b2c.firebasestorage.app",
