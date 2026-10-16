@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facture</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      width: 58mm;
+    }
+    .invoice {
+      padding: 10px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 16px;
+      margin: 0;
+    }
+    .header p {
+      margin: 2px 0;
+    }
+    .details {
+      margin-bottom: 10px;
+    }
+    .details p {
+      margin: 2px 0;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    .table th, .table td {
+      border: 1px solid #000;
+      padding: 5px;
+      text-align: left;
+    }
+    .table th {
+      background-color: #f0f0f0;
+    }
+    .totals {
+      text-align: right;
+    }
+    .totals p {
+      margin: 2px 0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .footer p {
+      margin: 2px 0;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="invoice">
+    <div class="header">
+      <h1>Pharmacie Santé+</h1>
+      <p>123 Rue Principale, Ville</p>
+      <p>Tél: 01 23 45 67 89</p>
+      <p>Email: contact@pharmaciesanteplus.fr</p>
+    </div>
+
+    <div class="details">
+      <p><strong>Date:</strong> 11/12/2024</p>
+      <p><strong>Facture No:</strong> 001234</p>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Qté</th>
+          <th>Prix</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paracétamol</td>
+          <td>2</td>
+          <td>2.50€</td>
+          <td>5.00€</td>
+        </tr>
+        <tr>
+          <td>Vitamine C</td>
+          <td>1</td>
+          <td>3.00€</td>
+          <td>3.00€</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <p><strong>Total:</strong> 8.00€</p>
+      <p><strong>TVA (10%):</strong> 0.80€</p>
+      <p><strong>Total TTC:</strong> 8.80€</p>
+    </div>
+
+    <div class="footer">
+      <p>Merci pour votre visite !</p>
+      <p>Pharmacie Santé+</p>
+    </div>
+  </div>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+const pdf = new jsPDF();
+pdf.html(document.body, {
+  callback: function (doc) {
+    doc.save("facture.pdf");
+  },
+  x: 10,
+  y: 10,
+});
+
+  </script>
+</body>
+</html>

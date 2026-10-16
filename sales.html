@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" rel="icon" href="logo.png">
+
+
+
+    <script>
+    </script>
+
+    <meta property="og:locale" content="fr_FR">
+    <link rel="stylesheet" rel="icon" href="logo.png">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            border: 1px solid black;
+           
+            text-align: left;
+        }
+        .info{
+            color: black;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        label,p,input{
+            color: black;
+        }
+    </style>
+
+<style>
+    
+    .invoice {
+      padding: 10px;
+      width: 60mm;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 16px;
+      margin: 0;
+    }
+    .header p {
+      margin: 2px 0;
+    }
+    .details {
+      margin-bottom: 10px;
+    }
+    .details p {
+      margin: 2px 0;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    .table th, .table td {
+      border: 1px solid #000;
+      padding: 5px;
+      text-align: left;
+    }
+    .table th {
+      background-color: #f0f0f0;
+    }
+    .totals {
+      text-align: right;
+    }
+    .totals p {
+      margin: 2px 0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .footer p {
+      margin: 2px 0;
+    }
+  </style>
+    <title>GERMAIN PHARMA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        td input {
+            width: 50px;
+            height: 100%;
+        }
+        
+        .container h2 {
+            text-align: center;
+        }
+        
+       
+        
+        .container label {
+            display: inline-block;
+        }
+        
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #b35100;
+        }
+        
+        #card-display {
+            margin-top: 20px;
+            width: 300px;
+        }
+        
+        #myForm input {
+            text-align: center;
+        }
+        
+        center {
+            width: 100%;
+        }
+        
+        #myForm th,
+        tr {
+            width: 175px;
+            text-align: center;
+        }
+        
+        #myForm th,
+        td {
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        #myForm select,
+        input,
+        textarea:focus {
+            outline: none;
+            border: none;
+            /* Supprime la bordure de focus */
+        }
+        
+        .calculatesection {
+            display: flex;
+            width: 175px;
+            margin-left: 10px;
+        }
+        
+        .calculatesection input {
+            width: 60px;
+        }
+        
+        #productConsumed th:nth-child(4),
+        #productConsumed td:nth-child(4) {
+            display: none;
+        }
+        
+        #productConsumed {
+            width: 58mm;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="home.html">GERMAIN PHARMA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        
+
+                        <li class="" style=" width: 100%; margin-right: 50px;">
+                            <a class="nav-link nav-icons" href="home.html"><button class="fas fa-fw fa-home" style="width: 100%;">Accueil</button> </a>
+
+                        </li>
+                        
+                        <li class="" style=" width: 100%; margin-right: 50px;">
+                            <a class="nav-link nav-icons" href="newexpences.html"><button class="fas fa-wallet" style="width: 100%;">Depenses</button> </a>
+
+                        </li>
+
+                        <li class="" style=" width: 100%; margin-right: 10px;">
+                            <a class="nav-link nav-icons"><button style="width: 100%; background-color: #b35100; border-radius: 50%;" class="fas fa-fw fa-user" id="username"></button> </a>
+
+                        </li>
+                        <li class="" style=" width: 100%; margin-right: 10px;">
+                            <a class="nav-link nav-icons" href="sales.html"><button style="width: 100%;" class="fas fa-fw fa-circle">Reload</button> </a>
+
+                        </li>
+
+
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark" style="width: 350px;">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+
+                    <div>
+
+
+                        
+                            <div class="card" id="card-display invoice">
+
+
+                                <form   id="myForm" class="invoice">
+                                    
+                                    <div class="header">
+                                        <h2>GERMAIN-PHARMA</h2>
+                                        
+                                        
+                                      </div>
+                                        
+                                      <div class="details">
+                                        <p><label for="date"><strong>Date:</strong> <input type="date" id="date"></label></p>
+                                        
+                                        <p>
+                                            <label for="factureId"><strong>No:</strong>   
+                                            <input id="factureId" name="factureId" required placeholder="No facture"></p></label> 
+                                            
+                                        
+                                        </div>
+
+
+                                   
+                                        <div class="form-group">
+
+                                            <div class="productconsommation">
+                                                <table class="table" id="productConsumed">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Item</th>
+                                                            <th>Qt</th>
+                                                            <th>Prx</th>
+                                                            
+
+                                                            
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="consumedTableBody">
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="totals">
+                                            <p><strong>Total Gds:</strong> <input type="number" class="totalGdes"  step="0.01" min="0" max="10000000" readonly required><br>
+                                            </p>
+                                            <p><strong>Pay&eacute; Gds:</strong> <input type="number" class="pay-onGdes"  step="0.01" min="0" max="10000000" value="0" required>
+                                            </p>
+                                            <p>
+                                                <strong>Rabais:</strong> <input type="number" class="rabais"  step="0.01" min="0" max="10000000" value="0">
+                                            </p>
+                                            <p><strong>Methode:</strong> 
+                                                <select name="paymentmeth" id="paymentmeth" required>
+                                                    <option value="cash">cash</option>
+                                                    <option value="moncash">moncash</option>
+                                                    <option value="paypall">paypal</option>
+                                                    <option value="zell">zell</option>
+                                                    <option value="check">check</option>
+                                                    <option value="card">Credit/Debit card</option>
+                                                    
+                                                  </select>
+                                            </p>
+                                            <p><strong>Change:</strong>  <input type="number" class="changeGdes"  step="0.01" min="0" max="10000000" required readonly>
+                                            </p>
+                                            <p><strong>Balance:</strong> <input type="number" class="balanceGdes"  step="0.01" min="0" max="10000000" required readonly>
+                                            </p>
+                                          </div>
+                                       
+                                          <div class="header">
+                                           
+                                            <p><strong>Pharmacien:</strong> <input type="text" class="vendeur" id="sellerName" placeholder="Vendeur" readonly required><br>
+                                            </p>
+                                          </div>
+                                       
+                                        
+                    
+                    <div class="header">
+                    
+                        <p>Nb:Aucun retour ou échange n’est accepté après achat.</p>
+                      </div>
+
+                                    <button style="width: 100%;" class="newcustomer" type="button" id="saveSale"> Aprouv&eacute;</button>
+
+                                </form>
+                                <br>
+                                
+
+                            </div>
+                    
+
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <style>
+            #invoices li {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+        </style>
+       <script>
+        function printDiv(divId) {
+    var divElement = document.getElementById(divId);
+    var clonedDiv = divElement.cloneNode(true);
+    
+    // Copier les valeurs des inputs dans leurs attributs value
+    var inputs = clonedDiv.querySelectorAll("input, textarea");
+    inputs.forEach(input => {
+        input.setAttribute("value", input.value);
+    });
+
+    var printWindow = window.open('', '', 'width=600,height=600');
+    printWindow.document.write('<html><head><title>Impression</title></head><body>');
+    printWindow.document.write(clonedDiv.innerHTML);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+}
+
+       </script>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper" style="margin-left: 350px;">
+            <div class="influence-profile">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                            <div class="page-header">
+                                <h3 class="mb-2">ORDER Dashboard </h3>
+                                <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+
+                                            <li class="nav-item">
+                                                <div id="custom-search" class="top-search-bar">
+                                                    <input class="form-control" type="text" id="search" placeholder="Search.."> <button id="rechercheFacture">Rechercher</button>
+                    
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+
+                    </style>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader -->
+                    <!-- ============================================================== -->
+
+                    <div class="container" id="cardHidden">
+                        <h2>Enregistrement des Ventes</h2>
+                        <form id="salesForm">
+
+
+                            <div>
+
+
+
+                                <label for="code">Scanner un produit:</label>
+                                <input type="text" id="code" name="code" required autofocus>
+                                <label for="name">Produit:</label>
+                                <input type="text" id="name" name="name" list="productList" required>
+                                <datalist id="productList"></datalist>
+                                
+                                <div>
+                                    <label for="description">Category:</label>
+                                    <input type="text" id="description" name="description" readonly required>
+                                </div>
+                                <div><br>
+                                    <label for="price" type="button"> Prix:</label>
+                                    <input id="price" name="price" required readonly>
+
+
+                                </div>
+                                <div>
+                                    <label for="quantity">Quantité:</label>
+                                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                                    
+                                </div>
+                                <br>
+                                <button for="priceChoice" id="addProductOnTable" type="button">Inserer</button>
+
+
+                                <button id="deleteRow" class="newcustomer" type="button"> Suprimer</button>
+
+                                <button onclick="printDiv('myForm')" type="button">Imprimer</button>
+
+                                <button id="print" class="newcustomer" onclick="generatePDF();" type="button">Telecharger Pdf</button>
+
+                                <button id="Confirm" class="newcustomer" type="button"> Calculer</button>
+
+                            </div>
+
+
+                            <style>
+                                #salesList div {
+                                    margin-top: 10px;
+                                    size: 24px;
+                                }
+                            </style>
+ <h3> <label for="daterepport2">Date du rapport : </label> <input type="date" name="daterepport2" id="daterepport2" style="font-size:30px;" required>
+ </h3>
+
+                        </form><br><br>
+                        <h2>Liste des Ventes</h2>
+                        <div id="salesList">Pas de vente</div>
+                        <!-- Liste des ventes du jour -->
+
+
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <button id="print" class="newcustomer" onclick="generatePDFDetails();" type="button">Print Repport</button>
+                                <div class="card-body">
+
+                                    <div class="metric-value d-inline-block" id="repportgene">
+                                        <center> <input type="date" id="daterepport" style="font-size:30px;" required readonly>
+                                            <h3 id="userRepport">Jane Doe</h3>
+                                        </center>
+                                        <!-- Tableau des ventes du jour -->
+                                        <h2>Détails des Ventes du Jour</h2>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Produit</th>
+                                                    <th>Quantité</th>
+                                                    <th>Prix Unitaire (Gdes)</th>
+                                                    <th>Revenu (Gdes)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="summaryTableBody"></tbody>
+                                            <!-- Tableau des ventes cumulées -->
+                                        </table>
+                                        <br><br>
+
+                                        <h3>Les d&eacute;penses</h3>
+                                        <table id="expensesTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <th>Prix</th>
+                                                    <th>Date</th>
+                                                    <th>Utilisateur</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                        <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">25%</span>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-light p-t-40 p-b-40">
+                                    <div id="sparkline-revenue3"></div>
+                                </div>
+                                <div class="card-footer text-center bg-white">
+                                    <a href="#" class="card-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- end wrapper -->
+    <!-- ============================================================== -->
+    </div>
+
+    <script src="https://konbitmarket.netlify.app/js/js/firebase-app.js"></script>
+    <script src="https://konbitmarket.netlify.app/js/js/auth.js"></script>
+    <script src="https://konbitmarket.netlify.app/js/js/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+
+
+
+
+    <script>
+        // Get current date
+        const today = new Date();
+
+        // Format date to 'YYYY-MM-DD' (required by HTML date input)
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
+        // Set the value of the input field to the current date
+        document.getElementById('date').value = formattedDate;
+    </script>
+
+<script>
+    
+</script>
+    <script>
+        // Set the value of the input field to the current date
+        document.getElementById('daterepport').value = formattedDate;
+    </script>
+
+    <script>
+        // Format time to 'HH:MM' (required by HTML time input)
+        const hours = String(today.getHours()).padStart(2, '0');
+        const minutes = String(today.getMinutes()).padStart(2, '0');
+        const formattedTime = `${hours}:${minutes}`;
+
+        // Set the value of the input field to the current time
+        document.getElementById('time').value = formattedTime;
+    </script>
+
+
+    <script>
+        
+
+      const productNameInput = document.getElementById('name');
+      const productList = document.getElementById('productList');
+        // Fonction pour récupérer les produits correspondant au préfixe et les afficher dans la liste de suggestions
+        async function fetchAndDisplayProducts() {
+            const prefix = productNameInput.value.trim();
+            const querySnapshot = await db.collection('products').where('name', '>=', prefix)
+                .where('name', '<=', prefix + '\uf8ff').get();
+            productList.innerHTML = ''; // Vider les options existantes
+            querySnapshot.forEach(doc => {
+                const productName = doc.data().name;
+                const option = document.createElement('option');
+                option.value = productName;
+                productList.appendChild(option);
+            });
+        }
+
+        
+        // Fonction pour vérifier si le produit existe et afficher ses prix comme options dans le champ priceChoice
+        async function checkProductAndDisplayPrices() {
+            const productName = productNameInput.value.trim();
+            const productRef = db.collection('products').where('name', '==', productName);
+
+            try {
+                const snapshot = await productRef.get();
+                if (snapshot.empty) {
+                    alert('Le produit sélectionné n\'existe pas.');
+                    return;
+                }
+
+                snapshot.forEach(doc => {
+                    const productData = doc.data();
+                               
+                             document.getElementById('code').value = productData.code;
+                          
+                            document.getElementById('description').value = productData.description; // category = description
+                            document.getElementById('price').value = productData.price;
+                           
+                });
+
+                
+            } catch (error) {
+                console.error('Erreur lors de la récupération des informations du produit :', error);
+            }
+        }
+
+         // Écouter les changements dans le champ de saisie du produit
+         productNameInput.addEventListener('input', fetchAndDisplayProducts);
+
+          const productInput = document.getElementById('name');
+          productInput.addEventListener('change', checkProductAndDisplayPrices);
+
+
+
+
+        let productsConsumed = [];
+        // Ajouter un produit au tableau
+        addProductOnTable.addEventListener('click', () => {
+            // Récupérer les valeurs des champs
+            const productName = document.getElementById('name').value.trim();
+
+            const category = document.getElementById('description').value.trim();
+            const quantity = parseInt(document.getElementById('quantity').value.trim());
+            const price = parseFloat(document.getElementById('price').value.trim());
+         
+
+            // Vérifier si tous les champs nécessaires sont remplis
+            if (!productName || !category || isNaN(quantity) || isNaN(price)) {
+                alert('Veuillez remplir tous les champs nécessaires.');
+                return;
+            }
+
+
+            // Vérifier si le produit existe déjà dans le tableau avec la même devise
+            const existingProductIndex = productsConsumed.findIndex(product => product.name === productName);
+
+            if (existingProductIndex !== -1) {
+                // Le produit existe déjà avec la même devise, mettre à jour la quantité et le total
+                const existingProduct = productsConsumed[existingProductIndex];
+                existingProduct.quantity = quantity;
+                existingProduct.total = total;
+
+                // Mettre à jour la ligne du tableau HTML
+                const tableBody = document.getElementById('consumedTableBody');
+                const row = tableBody.rows[existingProductIndex];
+                row.cells[1].innerHTML = `<input style="width:40px; type="number" value="${quantity}" min="1">`;
+
+            } else {
+                // Le produit n'existe pas encore avec la même devise, l'ajouter au tableau
+                productsConsumed.push({
+                    name: productName,
+                    quantity: quantity,
+                    price: price,
+                  
+                    category: category
+                });
+
+                // Ajouter une nouvelle ligne au tableau HTML
+                const tableBody = document.getElementById('consumedTableBody');
+                const row = tableBody.insertRow();
+                row.insertCell().textContent = productName;
+                row.insertCell().innerHTML = `<input style="width:40px;" type="number" value="${quantity}" min="1">`;
+                row.insertCell().textContent = price;
+                
+               
+
+            }
+
+            function resetAndFocusInput() {
+                // Réinitialiser la valeur de l'input
+                const inputField = document.getElementById('code');
+                inputField.value = '';
+
+                // Mettre l'input en focus
+                inputField.focus();
+            }
+
+            // Appeler la fonction quand nécessaire
+            resetAndFocusInput();
+
+
+            CalculerProduct();
+
+        });
+    </script>
+
+
+    <script src="htmltopdf.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('myForm');
+
+            // Options pour la conversion en PDF
+            const options = {
+                margin: 0,
+                filename: 'order.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 1
+                }, // Augmenter la qualité de l'image
+                html2canvas: {
+                    scale: 2
+                }, // Augmenter l'échelle
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
+                }
+            };
+
+            // Conversion de l'élément en PDF
+            html2pdf()
+                .from(element)
+                .set(options)
+                .save();
+        }
+    </script>
+
+
+    <script>
+        function generatePDFDetails() {
+            const element = document.getElementById('repportgene');
+
+            // Options pour la conversion en PDF
+            const options = {
+                margin: 0,
+                filename: 'order.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 1
+                }, // Augmenter la qualité de l'image
+                html2canvas: {
+                    scale: 2
+                }, // Augmenter l'échelle
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
+                }
+            };
+
+            // Conversion de l'élément en PDF
+            html2pdf()
+                .from(element)
+                .set(options)
+                .save();
+        }
+    </script>
+
+
+
+    <script>
+        function CalculerProduct() {
+            // Récupérer les totaux Gdes et Us
+            const totalGdes = parseFloat(document.querySelector('.totalGdes').value);
+
+            // Récupérer les montants payés en Gdes et en Us
+            const payOnGdes = parseFloat(document.querySelector('.pay-onGdes').value);
+            const Rabais = parseFloat(document.querySelector('.rabais').value);
+
+
+            let totalGdesToPay = 0;
+
+
+            // Sélectionner toutes les lignes du tableau
+            const rows = document.querySelectorAll('#consumedTableBody tr');
+
+            // Créer un objet pour stocker les quantités par devise
+            const quantitiesByCurrency = {};
+
+            // Parcourir chaque ligne du tableau
+            rows.forEach(row => {
+                const item = row.cells[0].textContent;
+                const quantity = parseInt(row.cells[1].querySelector('input').value);
+                const price = parseFloat(row.cells[2].textContent);
+
+                totalGdesToPay += quantity * price;
+
+
+            });
+
+            // Mettre à jour les champs de total
+            document.querySelector('.totalGdes').value = totalGdesToPay - Rabais;
+
+
+            // Vérifier si le montant payé est inférieur au total pour calculer la balance
+            let balanceGdes = 0;
+
+
+            let changeGdes = 0;
+
+
+            if (payOnGdes < totalGdes) {
+                balanceGdes = totalGdes - payOnGdes;
+            }
+
+
+            if (payOnGdes == 0) {
+                balanceGdes = totalGdes;
+            }
+
+
+            if (payOnGdes > totalGdes) {
+                changeGdes = payOnGdes - totalGdes;
+            }
+
+
+            // Mettre à jour les champs avec les calculs
+            document.querySelector('.balanceGdes').value = balanceGdes;
+
+            document.querySelector('.changeGdes').value = changeGdes;
+
+        };
+
+        document.getElementById('Confirm').addEventListener('click', CalculerProduct);
+    </script>
+
+    <script>
+        // Vérifier si l'utilisateur est connecté
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // Utilisateur connecté
+                const userId = user.uid;
+
+                // Récupérer le nom de l'utilisateur à partir de la collection 'users'
+                db.collection('users').doc(userId).get()
+                    .then(doc => {
+                        if (doc.exists) {
+                            const userData = doc.data();
+                            const Seller = document.getElementById('sellerName');
+                            const Seller1 = document.getElementById('userRepport');
+
+                            const UserName = document.getElementById('username');
+
+                            UserName.textContent = userData.name;
+                            Seller.value = userData.name;
+                            Seller1.textContent = userData.name;
+
+                        } else {
+                            console.error('Aucun document trouvé pour cet utilisateur.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la récupération des données de l\'utilisateur:', error);
+                    });
+            } else {
+                // Utilisateur non connecté, rediriger vers la page d'index
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+
+
+    <script>
+        // Écouteur sur le champ 'code' pour scanner le code barre
+        document.getElementById('code').addEventListener('input', function() {
+            const code = this.value.trim();
+            if (code) {
+                fetchProductByCode(code);
+            }
+        });
+
+        // Fonction pour récupérer un produit par code
+        function fetchProductByCode(code) {
+            db.collection('products').where('code', '==', code).get()
+                .then((querySnapshot) => {
+                    if (!querySnapshot.empty) {
+                        querySnapshot.forEach((doc) => {
+                            const product = doc.data();
+                            // Remplir les détails du produit dans le formulaire
+                            document.getElementById('name').value = product.name;
+                            document.getElementById('description').value = product.description; // category = description
+                            document.getElementById('price').value = product.price;
+                        });
+                    } else {
+                        console.log("Produit non trouvé");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Erreur lors de la récupération du produit :", error);
+                });
+        }
+    </script>
+
+    <script>
+        function generateRandomId(prefix) {
+            const randomId = Math.floor(1000 + Math.random() * 9000); // Génère un nombre aléatoire à 4 chiffres
+            return prefix + randomId;
+        }
+
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            // Assigner les IDs lors du chargement de la page
+            document.getElementById('factureId').value = generateRandomId('GEM');
+
+        });
+    </script>
+
+
+
+    <script src="sales.js"></script>
+
+    <script src="addrow.js"></script>
+    <!-- Ajoutez jQuery à votre page si ce n'est pas déjà fait -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+
+            $("#deleteRow").click(function() {
+                $("#productConsumed tbody tr:last").remove();
+                CalculerProduct();
+            });
+        });
+    </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const db = firebase.firestore();
+        const salesList = document.getElementById('salesList');
+        const summaryTableBody = document.getElementById('summaryTableBody');
+        const dateInput = document.getElementById('daterepport2');
+
+        function loadSalesByDate(date) {
+            db.collection("sales").where("date", "==", date).get().then((querySnapshot) => {
+                let cumulativeSales = {};
+                let totalRevenue = 0;
+
+                salesList.innerHTML = '';
+                summaryTableBody.innerHTML = '';
+
+                if (querySnapshot.empty) {
+                    salesList.innerHTML = `<div>Aucune vente trouvée pour ${date}</div>`;
+                } else {
+                    querySnapshot.forEach((doc) => {
+                        let sale = doc.data();
+
+                        salesList.innerHTML += `
+                            <div>
+                                Facture ID: ${sale.factureId} - Total: ${sale.totalGdes.toFixed(2)} Gdes - Vendeur: ${sale.sellerName}
+                                <button onclick="editSale('${doc.id}')">Éditer</button>
+                            </div>
+                        `;
+
+                        sale.products.forEach(product => {
+                            if (!cumulativeSales[product.item]) {
+                                cumulativeSales[product.item] = {
+                                    quantity: 0,
+                                    price: product.price
+                                };
+                            }
+                            cumulativeSales[product.item].quantity += product.quantity;
+                            cumulativeSales[product.item].revenue = cumulativeSales[product.item].quantity * product.price;
+                        });
+
+                        totalRevenue += sale.totalGdes;
+                    });
+
+                    for (let item in cumulativeSales) {
+                        summaryTableBody.innerHTML += `
+                            <tr>
+                                <td>${item}</td>
+                                <td>${cumulativeSales[item].quantity}</td>
+                                <td>${cumulativeSales[item].price.toFixed(2)} Gdes</td>
+                                <td>${cumulativeSales[item].revenue.toFixed(2)} Gdes</td>
+                            </tr>
+                        `;
+                    }
+
+                    summaryTableBody.innerHTML += `
+                        <tr>
+                            <td colspan="3"><strong>Total</strong></td>
+                            <td><strong>${totalRevenue.toFixed(2)} Gdes</strong></td>
+                        </tr>
+                    `;
+                }
+            }).catch((error) => {
+                console.error("Erreur lors du chargement des ventes :", error);
+            });
+        }
+
+        window.editSale = function(saleId) {
+            db.collection("sales").doc(saleId).get().then((doc) => {
+                if (doc.exists) {
+                    let sale = doc.data();
+                    document.getElementById('factureId').value = sale.factureId;
+                    document.getElementById('date').value = sale.date;
+                    document.getElementById('paymentmeth').value = sale.paymentMethod;
+                    document.getElementById('sellerName').value = sale.sellerName;
+
+                    const consumedTableBody = document.getElementById('consumedTableBody');
+                    consumedTableBody.innerHTML = '';
+                    sale.products.forEach(product => {
+                        consumedTableBody.innerHTML += `
+                            <tr>
+                                <td>${product.item}</td>
+                                <td><input type="number" style="width:40px;" value="${product.quantity}"></td>
+                                <td>${product.price.toFixed(2)}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    console.error("Vente non trouvée");
+                }
+            }).catch((error) => {
+                console.error("Erreur lors de la récupération de la vente :", error);
+            });
+        };
+
+        document.getElementById('rechercheFacture').addEventListener('click', () => {
+            const factureId = document.getElementById('search').value.trim();
+            if (!factureId) {
+                alert("Veuillez entrer un ID de facture");
+                return;
+            }
+
+            db.collection("sales").where("factureId", "==", factureId).get().then((querySnapshot) => {
+                if (querySnapshot.empty) {
+                    alert("Facture non trouvée");
+                } else {
+                    querySnapshot.forEach((doc) => {
+                        let sale = doc.data();
+                        document.getElementById('factureId').value = sale.factureId;
+                        document.getElementById('date').value = sale.date;
+                        document.getElementById('paymentmeth').value = sale.paymentMethod;
+                        document.getElementById('sellerName').value = sale.sellerName;
+
+                        const consumedTableBody = document.getElementById('consumedTableBody');
+                        consumedTableBody.innerHTML = '';
+                        sale.products.forEach(product => {
+                            consumedTableBody.innerHTML += `
+                                <tr>
+                                    <td>${product.item}</td>
+                                    <td><input type="number" value="${product.quantity}"></td>
+                                    <td>${product.price.toFixed(2)}</td>
+                                </tr>
+                            `;
+                        });
+                    });
+                }
+            }).catch((error) => {
+                console.error("Erreur lors de la recherche de la facture :", error);
+            });
+        });
+
+        // Chargement des ventes d’aujourd’hui par défaut
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today; // Mettre la date du jour dans l'input
+        loadSalesByDate(today);
+
+        // Rechargement quand la date change
+        dateInput.addEventListener('change', () => {
+            const selectedDate = dateInput.value;
+            loadSalesByDate(selectedDate);
+        });
+    });
+</script>
+
+<script>
+    const expensesCollection = firebase.firestore().collection('expenses');
+    const dateInput = document.getElementById('daterepport2');
+    const tableBody = document.querySelector('#expensesTable tbody');
+
+    function filterExpensesByDate(selectedDate) {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                const userId = user.uid;
+                const usersCollection = firebase.firestore().collection('users');
+
+                usersCollection.doc(userId).get().then(doc => {
+                    if (doc.exists) {
+                        const userName = doc.data().name;
+                        tableBody.innerHTML = ''; // Réinitialiser le tableau
+                        let totalExpenses = 0;
+
+                        expensesCollection
+                            .where('date', '==', selectedDate)
+                            .where('user', '==', userName)
+                            .get()
+                            .then(querySnapshot => {
+                                if (querySnapshot.empty) {
+                                    const row = tableBody.insertRow();
+                                    const cell = row.insertCell();
+                                    cell.colSpan = 4;
+                                    cell.textContent = 'Aucune dépense pour cette date.';
+                                } else {
+                                    querySnapshot.forEach(doc => {
+                                        const expense = doc.data();
+                                        const row = tableBody.insertRow();
+                                        row.insertCell().textContent = expense.name;
+                                        row.insertCell().textContent = expense.price.toFixed(2);
+                                        row.insertCell().textContent = expense.date;
+                                        row.insertCell().textContent = expense.user || 'Non spécifié';
+                                        totalExpenses += expense.price;
+                                    });
+
+                                    const totalRow = tableBody.insertRow();
+                                    totalRow.insertCell().textContent = 'Total';
+                                    totalRow.insertCell().textContent = totalExpenses.toFixed(2) + ' gdes';
+                                    totalRow.insertCell();
+                                    totalRow.insertCell();
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Erreur lors de la récupération des dépenses : ', error);
+                            });
+
+                    } else {
+                        console.error('Utilisateur non trouvé dans la collection users');
+                    }
+                }).catch(error => {
+                    console.error('Erreur lors de la récupération des informations de l\'utilisateur : ', error);
+                });
+            } else {
+                console.error('Utilisateur non connecté');
+            }
+        });
+    }
+
+    dateInput.value = today;
+    filterExpensesByDate(today);
+
+    // Réagir au changement de date
+    dateInput.addEventListener('change', () => {
+        const selectedDate = dateInput.value;
+        if (selectedDate) {
+            filterExpensesByDate(selectedDate);
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

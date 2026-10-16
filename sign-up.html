@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sign up</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<!-- ============================================================== -->
+<!-- signup form  -->
+<!-- ============================================================== -->
+
+<body>
+    <div class="dashboard-header">
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <a class="navbar-brand" href="home.html">GERMAIN PHARMA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button style="background-color: blue;"><a style="color: #ffff;" href="home.html">Accueil</a></button>
+           
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto navbar-right-top">
+
+
+                    <li class="nav-item dropdown nav-user">
+                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/iconuser (2).png" alt="" class="user-avatar-md rounded-circle"></a>
+                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <div class="nav-user-info">
+                                <h5 class="mb-0 text-white nav-user-name" id="username"></h5>
+                            
+                            </div>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                            <a id="logout" class="dropdown-item" href="index.html"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container" style="width:60%; margin-top: 180px;">
+
+        <div class="card">
+            <form id="signupForm">
+                <div class="card-header">
+                    <h3 class="mb-1">Registrations Form</h3>
+                    <p>Please enter your user information.</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" type="text" id="name" required placeholder="Full Name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" type="email" id="email" required placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" id="password" type="password" required placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                       <select name="role" id="role">
+                        <option value="vendeur">Vendeur</option>
+                        <option value="manager">Manager</option>
+                        <option value="dg">Dg</option>
+                       </select>
+                    </div>
+
+
+
+                    <div class=" pt-2">
+                        <button class="btn btn-block btn-primary" onclick="signup()" id="sgnupButton" type="button">Register My Account</button>
+                    </div>
+            </form>
+
+
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+                
+                #userList {
+                    margin-top: 20px;
+                }
+                
+                .user {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    margin-bottom: 5px;
+                }
+                
+                button {
+                    background-color: red;
+                    color: white;
+                    border: none;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                }
+                
+                button:hover {
+                    background-color: darkred;
+                }
+            </style>
+
+            <div class="form-group">
+                <label class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox" required><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
+        </label>
+            </div>
+           
+            <div id="userList">
+                <h2>Liste des Utilisateurs</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable"></tbody>
+                </table>
+            </div>
+            </div>
+
+        </div>
+
+</body>
+<script src="https://konbitmarket.netlify.app/js/js/firebase-app.js"></script>
+<script src="https://konbitmarket.netlify.app/js/js/auth.js"></script>
+<script src="https://konbitmarket.netlify.app/js/js/firebase-firestore.js"></script>
+<script src="firebase-config.js"></script>
+
+
+<script>
+
+
+    // Fonction pour gérer l'inscription de l'utilisateur
+    function signup() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const role = document.getElementById("role").value;
+
+
+        // Créer un compte utilisateur avec l'e-mail et le mot de passe
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Ajouter le nom de l'utilisateur à la collection 'users' dans Firestore
+                const userId = userCredential.user.uid;
+                firebase.firestore().collection('users').doc(userId).set({
+                        name: name,
+                        email: email,
+                        role:role
+                    })
+                    .then(() => {
+                        alert('Utilisateur enregistré avec succès.');
+                        // Rediriger vers la page souhaitée après l'inscription
+
+                    })
+                    .catch((error) => {
+                        console.error('Erreur lors de l\'enregistrement des données de l\'utilisateur:', error);
+                        // Afficher un message d'erreur à l'utilisateur
+                        alert('Erreur lors de l\'enregistrement. Veuillez réessayer.');
+                    });
+            })
+            .catch((error) => {
+                console.error('Erreur lors de l\'inscription de l\'utilisateur:', error);
+                // Afficher un message d'erreur à l'utilisateur
+                alert(error.message);
+            });
+    }
+</script>
+<script>
+
+    // Fonction pour afficher les utilisateurs
+    function loadUsers() {
+        const usersTable = document.getElementById("usersTable");
+        usersTable.innerHTML = ""; // Vider le tableau avant de recharger
+        
+        db.collection("users").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const user = doc.data();
+                const userId = doc.id;
+
+                const row = `<tr>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <button onclick="deleteUser('${userId}', '${user.email}')">Supprimer</button>
+                    </td>
+                </tr>`;
+
+                usersTable.innerHTML += row;
+            });
+        }).catch(error => {
+            console.error("Erreur lors du chargement des utilisateurs:", error);
+        });
+    }
+
+    // Fonction pour supprimer un utilisateur
+    function deleteUser(userId, email) {
+        if (confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) {
+            // Supprimer de Firestore
+            db.collection("users").doc(userId).delete()
+                .then(() => {
+                    console.log("Utilisateur supprimé de Firestore");
+
+                    // Supprimer de Firebase Auth
+                    firebase.auth().signInWithEmailAndPassword(email, "mot_de_passe_temporaire")
+                        .then(userCredential => {
+                            userCredential.user.delete()
+                                .then(() => {
+                                    alert("Utilisateur supprimé avec succès !");
+                                    loadUsers(); // Recharger la liste après suppression
+                                })
+                                .catch(error => console.error("Erreur lors de la suppression de l'utilisateur:", error));
+                        })
+                        .catch(error => console.error("Erreur d'authentification pour suppression:", error));
+                })
+                .catch(error => console.error("Erreur lors de la suppression de Firestore:", error));
+        }
+    }
+
+    // Charger la liste au chargement de la page
+    window.onload = loadUsers;
+</script>
+
+</body>
+</html>
