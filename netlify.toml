@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[build.environment]
+  # Firebase browser configuration contains public client identifiers.
+  # Keep secrets scanning enabled for all other repository and output files.
+  SECRETS_SCAN_OMIT_PATHS = "firebase-config.js"
